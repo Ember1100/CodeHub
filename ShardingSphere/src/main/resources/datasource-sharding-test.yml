@@ -39,13 +39,9 @@ spring:
             table-strategy:
               standard:
                 shardingColumn: order_id
-                shardingAlgorithmName: trade-order-sharding
+                shardingAlgorithmName: t-order-sharding
         shardingAlgorithms:
-          #          t-order-inline:
-          #            type: INLINE
-          #            props:
-          #              algorithm-expression: trade_order_0${Math.abs(buyer_id.hashCode()) % 4}
-          trade-order-sharding:
+          t-order-sharding:
             type: INLINE
             props:
               algorithm-expression: order_00${Math.abs(order_id.hashCode()) % 4}
